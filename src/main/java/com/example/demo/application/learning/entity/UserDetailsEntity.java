@@ -18,5 +18,5 @@ public class UserDetailsEntity {
     @Column(name = "user_name")
     private String userName;
     @Column(name = "user_address")
-    private long userAddress;
+    private String userAddress;
 }

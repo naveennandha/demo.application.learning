@@ -13,8 +13,16 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("/load")
+    public String saveUser(){
+        return  "home.xml";
+    }
+
     @PostMapping("/addUser")
     public UserDetailsEntity saveUser(@RequestBody UserDetailsEntity user){
+        String url = "google.com";
+
+
          return  userService.createUser(user);
     }
 
@@ -38,7 +46,7 @@ public class UserController {
         return userService.updateUserDetails(newUser);
     }
 
-    @DeleteMapping("/deleteUser")
+    @DeleteMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable int id){
         userService.deleteUser(id);
         return "User HAs been deleted Successfully";
